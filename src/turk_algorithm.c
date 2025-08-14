@@ -6,7 +6,7 @@
 /*   By: qdeffaux <qdeffaux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 14:01:35 by qdeffaux          #+#    #+#             */
-/*   Updated: 2025/08/12 07:24:49 by qdeffaux         ###   ########.fr       */
+/*   Updated: 2025/08/12 16:21:24 by qdeffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	push_back_optimally(t_stack *a, t_stack *b)
 {
 	int	target_pos;
 	int	size_a;
+	int	moves_needed;
 
 	while (b->top)
 	{
@@ -24,12 +25,14 @@ void	push_back_optimally(t_stack *a, t_stack *b)
 		size_a = get_stack_size(a);
 		if (target_pos <= size_a / 2)
 		{
-			while (target_pos-- > 0)
+			moves_needed = target_pos;
+			while (moves_needed-- > 0)
 				ra(a);
 		}
 		else
 		{
-			while (target_pos++ < size_a)
+			moves_needed = size_a - target_pos;
+			while (moves_needed-- > 0)
 				rra(a);
 		}
 		pa(a, b);
@@ -41,6 +44,7 @@ void	final_rotation(t_stack *a)
 {
 	int	min_pos;
 	int	size;
+	int	moves_needed;
 
 	min_pos = find_min_position(a);
 	size = get_stack_size(a);
@@ -48,13 +52,14 @@ void	final_rotation(t_stack *a)
 		return ;
 	if (min_pos <= size / 2)
 	{
-		while (min_pos-- > 0)
+		moves_needed = min_pos;
+		while (moves_needed-- > 0)
 			ra(a);
 	}
 	else
 	{
-		min_pos = size - min_pos;
-		while (min_pos-- > 0)
+		moves_needed = size - min_pos;
+		while (moves_needed-- > 0)
 			rra(a);
 	}
 }

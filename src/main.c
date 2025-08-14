@@ -6,19 +6,11 @@
 /*   By: qdeffaux <qdeffaux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 14:01:35 by qdeffaux          #+#    #+#             */
-/*   Updated: 2025/08/12 11:06:52 by qdeffaux         ###   ########.fr       */
+/*   Updated: 2025/08/12 16:42:34 by qdeffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_free(int *numbers, int *original_numbers, t_stack *a, t_stack *b)
-{
-	free(numbers);
-	free(original_numbers);
-	free(a);
-	free(b);
-}
 
 int	*copy_and_prepare_numbers(int *numbers, int size)
 {
@@ -60,54 +52,53 @@ int	initialize_and_populate(t_stack **a, t_stack **b, int *numbers, int size)
 	return (1);
 }
 
+static int	handle_single_arg(char *arg, int **numbers, int *size)
+{
+	char	**split_argv;
+	int		new_argc;
+	int		i;
+
+	split_argv = ft_split(arg, ' ');
+	if (!split_argv)
+		return (write(2, "Error\n", 6) - 1);
+	new_argc = 0;
+	while (split_argv[new_argc])
+		new_argc++;
+	if (new_argc == 0)
+	{
+		i = 0;
+		while (split_argv[i])
+			free(split_argv[i++]);
+		free(split_argv);
+		return (write(2, "Error\n", 6) - 1);
+	}
+	*numbers = parse_arguments(new_argc + 1, split_argv - 1, size);
+	i = 0;
+	while (split_argv[i])
+		free(split_argv[i++]);
+	free(split_argv);
+	return (1);
+}
+
 int	validate_and_parse_input(int argc, char **argv, int **numbers, int *size)
 {
 	if (argc < 2)
 		return (0);
-	*numbers = parse_arguments(argc, argv, size);
-	if (!*numbers)
+	if (argc == 2)
 	{
-		write(2, "Error\n", 6);
-		return (-1);
+		if (handle_single_arg(argv[1], numbers, size) == -1)
+			return (-1);
 	}
-	if (has_duplicates(*numbers, *size))
+	else
+		*numbers = parse_arguments(argc, argv, size);
+	if (!*numbers || has_duplicates(*numbers, *size))
 	{
-		free(*numbers);
-		write(2, "Error\n", 6);
-		return (-1);
+		if (*numbers)
+			free(*numbers);
+		return (write(2, "Error\n", 6) - 1);
 	}
 	return (1);
 }
-
-/*
-void    display(t_stack *a, t_stack *b)
-{
-    t_node    *current_a;
-    t_node    *current_b;
-
-    current_a = a->top;
-    current_b = b->top;
-    printf("    STACK A\t\tSTACK B\n\n");
-    while (current_a || current_b)
-    {
-        if (current_a)
-        {
-            printf("       %-20d", current_a->value);
-            current_a = current_a->next;
-        }
-        else
-            printf("                           ");
-        if (current_b)
-        {
-            printf("%d\n", current_b->value);
-            current_b = current_b->next;
-        }
-        else
-            printf("\n");
-    }
-    printf("\n");
-}
-*/
 
 int	main(int argc, char **argv)
 {

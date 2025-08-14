@@ -6,11 +6,19 @@
 /*   By: qdeffaux <qdeffaux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 14:01:35 by qdeffaux          #+#    #+#             */
-/*   Updated: 2025/08/12 07:44:23 by qdeffaux         ###   ########.fr       */
+/*   Updated: 2025/08/12 16:42:58 by qdeffaux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_free(int *numbers, int *original_numbers, t_stack *a, t_stack *b)
+{
+	free(numbers);
+	free(original_numbers);
+	free(a);
+	free(b);
+}
 
 int	find_min(t_stack *stack)
 {
