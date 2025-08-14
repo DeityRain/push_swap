@@ -39,8 +39,13 @@ You’ll also write a **checker** program to verify the correctness of the outpu
 ---
 
 ## 📦 Compilation
-```bash
+
 make
 
 ./push_swap (number you want to sorted.)
 ./push_swap 10 -5 20 -30 45 1 -6 13.
+
+for getting the number of operation you can do : 
+
+./push_swap (number you want to sorted.) | wc -l
+./push_swap 10 -5 20 -30 45 1 -6 13 | wc -l
