@@ -1,19 +1,19 @@
 # Push_swap
 
-## 📌 Overview
+## Overview
 **Push_swap** is a sorting algorithm project from [42 School](https://42.fr/).  
 The goal is to sort a stack of integers with the fewest possible operations using a restricted set of stack manipulation instructions.  
 This project tests your ability to design efficient algorithms, manage complexity, and implement robust C code.
 
 ---
 
-## 🎯 Objective
+## Objective
 Given a list of integers as arguments, your program must output a sequence of predefined operations that will sort the numbers in ascending order.  
 You’ll also write a **checker** program to verify the correctness of the output.
 
 ---
 
-## ⚙️ Allowed Operations
+## Allowed Operations
 - `sa` — swap the first 2 elements of stack **A**
 - `sb` — swap the first 2 elements of stack **B**
 - `ss` — `sa` and `sb` at the same time
@@ -28,7 +28,7 @@ You’ll also write a **checker** program to verify the correctness of the outpu
 
 ---
 
-## 🛠️ Implementation Details
+## Implementation Details
 - **Language:** C
 - **Paradigm:** Algorithmic problem-solving with complexity optimization
 - **Algorithm choice:** 
@@ -38,7 +38,7 @@ You’ll also write a **checker** program to verify the correctness of the outpu
 
 ---
 
-## 📦 Compilation
+## Compilation
 
 make
 
