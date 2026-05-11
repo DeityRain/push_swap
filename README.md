@@ -49,3 +49,10 @@ for getting the number of operation you can do :
 
 ./push_swap (number you want to sorted.) | wc -l
 ./push_swap 10 -5 20 -30 45 1 -6 13 | wc -l
+
+---
+
+## Author
+
+**DeityRain**    
+🧭 [github.com/DeityRain](https://github.com/DeityRain)
