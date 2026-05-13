@@ -1,7 +1,7 @@
 # Push_swap
 
 ## Overview
-**Push_swap** is a sorting algorithm project from [42 School](https://42.fr/).  
+**Push_swap** is a sorting algorithm project from [42 School]([https://42.fr](https://42luxembourg.lu)).  
 The goal is to sort a stack of integers with the fewest possible operations using a restricted set of stack manipulation instructions.  
 This project tests your ability to design efficient algorithms, manage complexity, and implement robust C code.
 
