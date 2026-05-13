@@ -55,4 +55,4 @@ for getting the number of operation you can do :
 ## Author
 
 **DeityRain**    
-🧭 [github.com/DeityRain](https://github.com/DeityRain)
+[github.com/DeityRain](https://github.com/DeityRain)
